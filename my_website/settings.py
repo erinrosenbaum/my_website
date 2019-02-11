@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'users',
     'static_pages',
     'crispy_forms',
+    'articles',
+    'django_extensions', 
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,4 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+TIME_ZONE = 'America/Denver'

@@ -8,6 +8,7 @@
     {% csrf_token %}
     {{ form|crispy }}
     <p>Are you sure you want to delete "{{ article.title }}"?</p>
-    <button class="btn btn-danger ml-2" type="submit">Confirm</button>  
+    <button class="btn btn-danger ml-2" type="submit">Confirm</button>
+    <a class="btn btn-outline-info ml-2" href="{% url 'article_detail' article.pk %}">Nevermind</a>
   </form>
 {% endblock %}

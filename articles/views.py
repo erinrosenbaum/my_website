@@ -36,3 +36,25 @@ class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'article_delete.html'
     success_url = reverse_lazy('article_list')
     login_url = 'login'
+
+class CommentDeleteView(LoginRequiredMixin, DeleteView):
+    model = models.Comment
+    template_name = 'comment_delete.html'
+    success_url = reverse_lazy('article_list')
+    login_url = 'login'
+
+class CommentCreateView(LoginRequiredMixin, CreateView):
+    model = models.Comment
+    template_name = 'comment_new.html'
+    fields = ['comment']
+    login_url = 'login'
+
+    def form_valid(self, form):
+        print(self)
+        print(self.request)
+        print(form)
+
+        form.instance.author = self.request.user
+        form.instance.article_id = self.kwargs['pk']
+
+        return super().form_valid(form)

@@ -47,14 +47,19 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
     model = models.Comment
     template_name = 'comment_new.html'
     fields = ['comment']
+    #success_url = reverse_lazy('article_detail')
     login_url = 'login'
 
     def form_valid(self, form):
-        print(self)
-        print(self.request)
-        print(form)
-
+        # print(self)
+        # print(self.request)
+        # print(form)
         form.instance.author = self.request.user
         form.instance.article_id = self.kwargs['pk']
-
         return super().form_valid(form)
+
+    def get_success_url(self):
+          # if you are passing 'pk' from 'urls' to 'DeleteView' for company
+          # capture that 'pk' as companyid and pass it to 'reverse_lazy()' function
+          article_id=self.kwargs['pk']
+          return reverse_lazy('article_detail', kwargs={'pk': article_id})

@@ -6,3 +6,15 @@
 .button-wrap {
   margin: 10px;
 }
+
+.weather_link {
+  margin-left: 10px;
+}
+
+.my_container {
+  padding-bottom: 10px;
+}
+
+#my_card-header {
+  background-color: #B5D8EA;
+}

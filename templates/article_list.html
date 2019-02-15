@@ -3,10 +3,14 @@
 {% block title %}Articles{% endblock %}
 
 {% block content %}
+<div class="my_container">
+  <a class="weather_link btn btn-info btn-sm" href="{% url 'article_new' %}">New article</a>
+</div>
+
   {% for article in object_list %}
     <div class="card">
-      <div class="card-header">
-        <span> {{ article.pk }}.</span>
+      <div class="card-header" id="my_card-header">
+        <!-- <span> {{ article.pk }}.</span> -->
         <h5 class="my_header"> {{ article.title }}</h5> &middot;
         <span class="text-muted">{{ article.author }} | {{ article.date }}</span>
       </div>
@@ -22,12 +26,15 @@
 
       </div>
       <div class="card-footer">
-        <h6 class="text-left my_header">Comments</h6>
+        {% if article.comments.all %}
+        <h5 class="text-left my_header">{{ article.comments.count }} comment{{ article.comments.count|pluralize }}</h5>
+
+
+        {% else %}
+        <h6>No comments yet</h6>
+        {% endif %}
         <div class="row float-md-right">
             <a class="btn btn-outline-info btn-sm text-right" href="{% url 'comment_new' article.pk %}">New comment</a><hr>
-
-
-
         </div>
         {% for comment in article.comments.all %}
           <p>

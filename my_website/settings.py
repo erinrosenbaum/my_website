@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'static_pages',
     'crispy_forms',
     'articles',
-    'django_extensions', 
+    'django_extensions',
+    'weather',
 ]
 
 MIDDLEWARE = [

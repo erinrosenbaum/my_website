@@ -16,8 +16,9 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <a class="navbar-brand" href="{% url 'home' %}">My website</a>
       {% if user.is_authenticated %}
-      <ul class="navbar-nav mr-auto"><a href="{% url 'article_new' %}">New article</a>
-      </ul>
+        <a class="btn btn-success btn-sm" href="{% url 'weather:weather_list' %}">Weather Page</a>
+        <a class="weather_link btn btn-warning btn-sm" href="{% url 'article_list' %}">Articles</a>
+        <!-- <a class="weather_link btn btn-info btn-sm" href="{% url 'article_new' %}">New article</a> -->
       {% endif %}
       <button class="navbar-toggler" type="button" data-toggle="collapse"\
       data-target="#navbarCollapse" aria-controls="navbarCollapse"\
@@ -37,8 +38,9 @@
               aria-labelledby="userMenu">
                 <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'logout' %}">
-                Log Out</a>
+                <a class="dropdown-item" href="{% url 'logout' %}">Reset password
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
               </div>
             </li>
           </ul>
@@ -53,7 +55,7 @@
       </div>
     </nav>
     <div class="container">
-      <div class="">
+      <div>
         {% block content %}
         {% endblock content %}
       </div>

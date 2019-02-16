@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('static_pages.urls')),
     path('articles/', include('articles.urls')),
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls', namespace='blog')),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('weather/', include('weather.urls')),

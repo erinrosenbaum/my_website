@@ -3,7 +3,7 @@
 {% block title %}New Article{% endblock %}
 
 {% block content %}
-  <h1>New article</h1>
+  <h2>New article</h2>
   <form class="" method="post">
     {% csrf_token %}
     {{ form|crispy}}

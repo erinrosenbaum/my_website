@@ -18,3 +18,8 @@
 #my_card-header {
   background-color: #B5D8EA;
 }
+
+.highlight {
+  text-decoration: underline;
+  font-weight: bold;
+}

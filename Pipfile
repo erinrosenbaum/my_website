@@ -13,6 +13,7 @@ django-crispy-forms = "*"
 psycopg2-binary = "*"
 django-extensions = "*"
 requests = "*"
+django-taggit = "*"
 
 [requires]
 python_version = "3.7"

@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static "/articles/css/styles.css" %}">
+    <link rel="stylesheet" href="{% static "/articles/css/blog.css" %}">
     <!-- <link rel="stylesheet" href="{% static "/articles/css/blog.css" %}"> -->
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"
@@ -56,12 +57,11 @@
         {% endif %}
       </div>
     </nav>
-    <div id="content">
       <div class="container">
         {% block content %}
         {% endblock content %}
       </div>
-    </div>
+
     <!-- <div id="sidebar">
       <h2>Blog</h2>
       <p>Please chime in</p>

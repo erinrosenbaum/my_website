@@ -69,7 +69,6 @@ class CityDetailView(DetailView):
             'temperature' : resp['main']['temp'],
             'description' : resp['weather'][0]['description'],
             'icon' : resp['weather'][0]['icon'],
-            'time' : datetime.datetime.now()
         }
 
         weather_data.append(city_weather)

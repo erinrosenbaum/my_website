@@ -25,7 +25,7 @@ SECRET_KEY = 'rmh$v0ow_6zb5r@c#(ng!(&i-u!v8^hw*)r+xa$o3_rjm3&mv2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'erinrosenbaum.com']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'blog',
     'taggit',
     'django.contrib.postgres',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,20 @@ LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 TIME_ZONE = 'America/Denver'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    # 'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    # 'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
+]
+
+SOCIAL_AUTH_FACEBOOK_KEY = '373093810189426'
+SOCIAL_AUTH_FACEBOOK_SECRET = '6b3fdb7c7d8224f01cbbf55838244a2b'
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '675314618696-978464rk6gju3qjat1im9tnctr8fb6nn.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '0tT0MQWy6x4B5_bNG6DajGCt'
+# SOCIAL_AUTH_TWITTER_KEY = 'zM68nbIwvbb8OP6KMr7YX06DL'
+# SOCIAL_AUTH_TWITTER_SECRET = '86ARI80DfsIuRcdt8skjjSNt9HieMiNOsFv8ApdRNdUJ87NciA'
+THUMBNAIL_DEBUG = True

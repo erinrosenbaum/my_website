@@ -26,4 +26,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('weather/', include('weather.urls')),
+    path('social-auth/', include('social_django.urls', namespace='social')),
 ]

@@ -7,13 +7,13 @@ verify_ssl = true
 
 [packages]
 django = "*"
-psychopg2 = "*"
 psycopg2 = "*"
 django-crispy-forms = "*"
 psycopg2-binary = "*"
 django-extensions = "*"
 requests = "*"
 django-taggit = "*"
+social-auth-app-django = "*"
 
 [requires]
 python_version = "3.7"

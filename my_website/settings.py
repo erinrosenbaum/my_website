@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'taggit',
     'django.contrib.postgres',
     'social_django',
+    'shop',
+    'cart',
+    'orders'
 ]
 
 MIDDLEWARE = [
@@ -72,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -153,6 +157,9 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '6b3fdb7c7d8224f01cbbf55838244a2b'
 # SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '675314618696-978464rk6gju3qjat1im9tnctr8fb6nn.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '0tT0MQWy6x4B5_bNG6DajGCt'
-# SOCIAL_AUTH_TWITTER_KEY = 'zM68nbIwvbb8OP6KMr7YX06DL'
-# SOCIAL_AUTH_TWITTER_SECRET = '86ARI80DfsIuRcdt8skjjSNt9HieMiNOsFv8ApdRNdUJ87NciA'
+
 THUMBNAIL_DEBUG = True
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+CART_SESSION_ID = 'cart'

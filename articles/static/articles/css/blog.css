@@ -1,10 +1,10 @@
-#content {
+#content-blog {
     float:left;
     width:60%;
     padding:0 0 0 30px;
 }
 
-#sidebar {
+#sidebar-blog {
     float:right;
     width:30%;
     padding:10px;

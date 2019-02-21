@@ -14,6 +14,7 @@ django-extensions = "*"
 requests = "*"
 django-taggit = "*"
 social-auth-app-django = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"

@@ -5,6 +5,9 @@
 {% block content %}
   <h1>{{ post.title }}</h1>
   <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+  {% if post.image %}
+    <img class="img-fluid" src="{{ post.image.url }}" height=200 width=200 alt="">
+  {% endif %}
   {{ post.body|linebreaks }}
   <p><a href="{% url 'blog:post_list' %}">Back to list</a></p>
   <p><a href="{% url 'blog:post_share' post.id %}">Share this post by email</a></p>

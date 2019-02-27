@@ -15,6 +15,9 @@ requests = "*"
 django-taggit = "*"
 social-auth-app-django = "*"
 pillow = "*"
+celery = "*"
+flower = "*"
+braintree = "*"
 
 [requires]
 python_version = "3.7"

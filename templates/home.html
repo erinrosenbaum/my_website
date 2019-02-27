@@ -3,20 +3,22 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  <p>Hi {{ user.username }}!</p>
-  <p><a href="{% url 'logout' %}">logout</a></p>
-  <p><a class="" href="{% url 'article_list' %}">View the articles</a></p>
+<div id="content-blog">
+  {% if user.is_authenticated %}
+    <p>Hi {{ user.username }}!</p>
+    <p><a href="{% url 'logout' %}">logout</a></p>
+    <p><a class="" href="{% url 'article_list' %}">View the articles</a></p>
 
-{% else %}
-  <p>You are not logged in</p>
-  <p>
-    <a href="{% url 'login' %}">login</a> | <a href="{% url 'signup' %}">signup</a> | <a href="{% url 'password_reset' %}">Password reset</a><br>
-  </p>
+  {% else %}
+    <p>You are not logged in</p>
+    <p>
+      <a href="{% url 'login' %}">login</a> | <a href="{% url 'signup' %}">signup</a> | <a href="{% url 'password_reset' %}">Password reset</a><br>
+    </p>
 
-{% endif %}
-  <p><a class="" href="{% url 'weather:weather_list' %}">Weather page</a></p>
-  <p><a class="" href="{% url 'blog:post_list' %}">Blog</a></p>
-
-
+  {% endif %}
+    <p><a class="" href="{% url 'weather:weather_list' %}">Weather page</a></p>
+    <p><a class="" href="{% url 'blog:post_list' %}">Blog</a></p>
+    <p><a class="" href="{% url 'shop:product_list' %}">Shop</a></p>
+    <p><a class="" href="{% url 'jobs:jobs_home' %}">Jobs</a></p>
+</div>
 {% endblock %}

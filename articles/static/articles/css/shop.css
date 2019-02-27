@@ -1,12 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
-/* * {
-  border: 1px solid black;
-} */
 
-/* nav {
+nav {
   margin-bottom: 0px;
-} */
+}
 
 body {
     margin:0;
@@ -320,4 +317,12 @@ form div.field {
 #subheader-links {
   display: inline-block;
   float: left;
+}
+.add-to-cart {
+  color:#fff;
+  background:#5993bb;
+  border-radius:4px;
+  padding:10px 20px;
+  font-size:14px;
+  border:0;
 }

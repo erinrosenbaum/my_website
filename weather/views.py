@@ -42,11 +42,11 @@ def index(request):
         weather_data.append(city_weather)
 
     context = {'weather_data' : weather_data, 'form' : form}
-    return render(request, 'weather.html', context)
+    return render(request, 'weather/weather.html', context)
 
 class CityDetailView(DetailView):
     model = models.City
-    template_name = 'city_detail.html'
+    template_name = 'weather/city_detail.html'
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -85,12 +85,12 @@ class CityDetailView(DetailView):
 
 class CityDeleteView(DeleteView):
     model = models.City
-    template_name = 'city_delete.html'
+    template_name = 'weather/city_delete.html'
     success_url = reverse_lazy('weather:weather_list')
 
 class CityCreateView(CreateView):
     model = models.City
-    template_name = 'new_city.html'
+    template_name = 'weather/new_city.html'
     fields = ['name']
     success_url = reverse_lazy('weather:weather_list')
 

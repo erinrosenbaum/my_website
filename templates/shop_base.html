@@ -36,7 +36,7 @@
         </div>
       </div>
       <div id="subheader">
-
+  <a class="add-to-cart" href="{% url 'home' %}">Skip shopping for now, take me back home</a>
         <div class="cart">
           {% with total_items=cart|length %}
             {% if cart|length > 0 %}
@@ -46,7 +46,7 @@
                 ${{ cart.get_total_price }}
               </a>
             {% else %}
-              Your cart is empty 
+              Your cart is empty
             {% endif %}
           {% endwith %}
         </div>

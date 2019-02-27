@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'social_django',
     'shop',
     'cart',
-    'orders'
+    'orders',
+    'payment',
+    'jobs',
 ]
 
 MIDDLEWARE = [
@@ -163,3 +165,16 @@ THUMBNAIL_DEBUG = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 CART_SESSION_ID = 'cart'
+
+BRAINTREE_MERCHANT_ID = 'rvtndbnk5c5x9qm4'
+BRAINTREE_PUBLIC_KEY = 't8ft5hqxh579vnfn'
+BRAINTREE_PRIVATE_KEY = '037c1c12744d56d0c2917ec67334ce9a'
+
+from braintree import Configuration, Environment
+
+Configuration.configure(
+    Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)

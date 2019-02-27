@@ -7,7 +7,7 @@ from . import models
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = models.Article
-    template_name = 'article_new.html'
+    template_name = 'articles/article_new.html'
     fields = ['title', 'body']
     login_url = 'login'
 
@@ -17,35 +17,35 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 
 class ArticleListView(LoginRequiredMixin, ListView):
     model = models.Article
-    template_name = 'article_list.html'
+    template_name = 'articles/article_list.html'
     login_url = 'login'
 
 class ArticleDetailView(LoginRequiredMixin, DetailView):
     model = models.Article
-    template_name = 'article_detail.html'
+    template_name = 'articles/article_detail.html'
     login_url = 'login'
 
 class ArticleUpdateView(LoginRequiredMixin, UpdateView):
     model = models.Article
     fields = ['title', 'body']
-    template_name = 'article_edit.html'
+    template_name = 'articles/article_edit.html'
     login_url = 'login'
 
 class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     model = models.Article
-    template_name = 'article_delete.html'
+    template_name = 'articles/article_delete.html'
     success_url = reverse_lazy('article_list')
     login_url = 'login'
 
 class CommentDeleteView(LoginRequiredMixin, DeleteView):
     model = models.Comment
-    template_name = 'comment_delete.html'
+    template_name = 'articles/comment_delete.html'
     success_url = reverse_lazy('article_list')
     login_url = 'login'
 
 class CommentCreateView(LoginRequiredMixin, CreateView):
     model = models.Comment
-    template_name = 'comment_new.html'
+    template_name = 'articles/comment_new.html'
     fields = ['comment']
     #success_url = reverse_lazy('article_detail')
     login_url = 'login'

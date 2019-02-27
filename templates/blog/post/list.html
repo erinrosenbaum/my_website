@@ -19,7 +19,10 @@
       {% endfor %}
     </p>
     <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
-    {{ post.body|truncatewords:30|linebreaks }}
+    {% if post.image %}
+      <img class="img-fluid" src="{{ post.image.url }}" height=200 width=200 alt="">
+    {% endif %}
+    <p>{{ post.body|truncatewords:30|linebreaks }}</p>
   {% endfor %}
   <!-- {% include "pagination.html" with page=page_obj %} -->
   {% include "pagination.html" with page=posts %}

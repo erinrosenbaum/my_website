@@ -5,24 +5,29 @@
 {% block content %}
 <div id="content-blog">
   <h1>Blog</h1>
-  <a href="{% url 'blog:post_search' %}">Search</a>
+  <a href="{% url 'blog:post_search' %}">This blog has powerful search capabilities. Try it out</a>
+  <br>
+  <br>
   {% if tag %}
     <h2>Posts tagged with "{{ tag.name }}"</h2>
   {% endif %}
   {% for post in posts %}
-    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-    <p class="tags">
-      Tags:
-      {% for tag in post.tags.all %}
-      <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
-      {% if not forloop.last %}, {% endif %}
-      {% endfor %}
-    </p>
-    <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
-    {% if post.image %}
-      <img class="img-fluid" src="{{ post.image.url }}" height=200 width=200 alt="">
-    {% endif %}
-    <p>{{ post.body|truncatewords:30|linebreaks }}</p>
+    <div class="blog-post-wrapper">
+      <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+      <p class="tags">
+        Tags:
+        {% for tag in post.tags.all %}
+        <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+      <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+      {% if post.image %}
+        <img class="img-fluid" src="{{ post.image.url }}" height=200 width=200 alt="">
+      {% endif %}
+      <p>{{ post.body|truncatewords:30|linebreaks }}</p>
+    </div>
+    <br>
+
   {% endfor %}
   <!-- {% include "pagination.html" with page=page_obj %} -->
   {% include "pagination.html" with page=posts %}

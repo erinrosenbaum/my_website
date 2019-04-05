@@ -8,17 +8,18 @@
     <figure class="image is-50x50">
       <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
     </figure>
-    <h1>{{ object.name }}</h1>
+    <h1>Current weather in {{ object.name }}</h1>
     <h3>{{ city.description }}</h3>
     <h3>{{ city.temperature|floatformat:'0' }} ℉</h3>
     <h3>Today's low: {{ city.temp_min|floatformat:'0' }} ℉</h3>
     <h3>Today's high: {{ city.temp_max|floatformat:'0' }} ℉</h3>
-    <h3>Updated: {{ city.time }}</h3>
-
+    <h3>Relative Humidity: {{ city.humidity }} %</h3>
+    <h3>Wind Speed: {{ city.wind_speed }} mph</h3>
+    <h3>Barometric Pressure : {{ city.pressure }} mb</h3>
 
     {% endfor %}
 
-    <p><a class="btn btn-outline-danger btn-sm" href="{% url 'weather:city_delete' object.pk %}">Delete</a></p>
-    <p>Back to <a href="{% url 'weather:weather_list' %}">Weather Main Page</a></p>
+    <p><a class="btn btn-outline-danger btn-sm" href="{% url 'weather:city_delete' object.pk %}">Delete this city from saved list</a></p>
+    <p><a href="{% url 'weather:weather_list' %}">Back to Weather Main Page</a></p>
   </div>
 {% endblock %}

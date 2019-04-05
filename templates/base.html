@@ -19,13 +19,13 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <a class="navbar-brand" href="{% url 'home' %}">Erin Rosenbaum</a>
       {% if user.is_authenticated %}
-        <a class="weather_link btn btn-secondary btn-sm" href="{% url 'shop:product_list' %}">Shop</a>
-        <a class="weather_link btn btn-info btn-sm" href="{% url 'blog:post_list' %}">Blog</a>
-        <a class="weather_link btn btn-warning btn-sm" href="{% url 'article_list' %}">Articles</a>
-        <a class="weather_link btn btn-success btn-sm" href="{% url 'weather:weather_list' %}">Weather</a>
-        <a class="weather_link btn btn-primary btn-sm" href="{% url 'jobs:jobs_home' %}">Jobs</a>
-        <a class="weather_link btn-outline-primary btn-sm" href="https://twitter.com/ErinLRosenbaum">Twitter</a>
-        <a class="weather_link btn btn-danger btn-sm" href="{% static 'resume_for_erin_rosenbaum.pdf' %}">Resume</a>
+        <a class="weather_link" href="{% url 'shop:product_list' %}">Shopping Center</a>
+        <a class="weather_link" href="{% url 'blog:post_list' %}">Blog</a>
+        <a class="weather_link" href="{% url 'article_list' %}">Articles</a>
+        <a class="weather_link" href="{% url 'weather:weather_list' %}">Weather</a>
+        <a class="weather_link" href="{% url 'jobs:jobs_home' %}">Jobs</a>
+        <a class="weather_link" href="https://twitter.com/ErinLRosenbaum">Twitter</a>
+        <a class="weather_link" href="{% static 'resume_for_erin_rosenbaum.pdf' %}">Resume</a>
       {% endif %}
       <button class="navbar-toggler" type="button" data-toggle="collapse"\
       data-target="#navbarCollapse" aria-controls="navbarCollapse"\
@@ -60,7 +60,7 @@
       </div>
     </nav>
 
-    <div id="page-container">
+    <div class="container">
       <div id="content-wrap">
        {% block content %}
        {% endblock %}
@@ -69,7 +69,7 @@
 
     <footer id="footer">
       <div class="text-center container">
-        <p id="copy" class="float-left inline-block">©️ Erin Rosenbaum {% now "Y" %}</p>
+        <p id="copy" class="float-left inline-block">Erin Rosenbaum {% now "Y" %}</p>
         <p class="float-right inline-block">
           <a class="button-wrap" href="#">Back to top</a>
         </p>

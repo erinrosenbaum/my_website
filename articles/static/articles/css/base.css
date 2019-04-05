@@ -275,3 +275,11 @@ img.user-detail {
     font-style:italic;
     color:#ccc;
 }
+
+.navbar {
+  display: flex;
+}
+.navbar > a {
+  display: flex;
+  justify-content: space-around;
+}

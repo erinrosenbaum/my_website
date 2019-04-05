@@ -25,13 +25,21 @@ def index(request):
 
     for city in cities:
         resp = requests.get(url.format(city))
-        #print(resp.content)
+        print('CONTENT \n')
+        print(resp.content)
+        print('TEXT \n')
+        print(resp.text)
+
+
         resp = requests.get(url.format(city)).json()
 
         city_weather = {
             'pk' : city.pk,
             'name' : city.name,
             #'state' : city.state,
+            'pressure' : resp['main']['pressure'],
+            'humidity' : resp['main']['humidity'],
+            'wind_speed' : resp['wind']['speed'],
             'temp_min' : resp['main']['temp_min'],
             'temp_max' : resp['main']['temp_max'],
             'temperature' : resp['main']['temp'],
@@ -64,6 +72,9 @@ class CityDetailView(DetailView):
             'pk' : self.kwargs['pk'],
             'name' : City.name,
             #'state' : city.state,
+            'pressure' : resp['main']['pressure'],
+            'humidity' : resp['main']['humidity'],
+            'wind_speed' : resp['wind']['speed'],
             'temp_min' : resp['main']['temp_min'],
             'temp_max' : resp['main']['temp_max'],
             'temperature' : resp['main']['temp'],

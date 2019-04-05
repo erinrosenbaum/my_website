@@ -6,7 +6,7 @@
   <h2>New article</h2>
   <form class="" method="post">
     {% csrf_token %}
-    {{ form|crispy}}
+    {{ form|crispy }}
     <button type="submit" class="btn btn-success ml-2">Save</button>
   </form>
 {% endblock %}

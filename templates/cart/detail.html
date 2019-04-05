@@ -5,6 +5,7 @@
 
 {% block content %}
 
+  {% if cart %}
   <h1>Your shopping cart</h1>
   <table class="cart">
     <thead>
@@ -44,6 +45,9 @@
       </tr>
     </tbody>
   </table>
+  {% else %}
+  <h1>Your shopping cart is empty</h1>
+  {% endif %}
   <p class="text-right">
     <a href="{% url 'shop:product_list' %}" class="button light">Continue shopping</a>
     <a href="{% url 'orders:order_create' %}" class="button">Checkout</a>

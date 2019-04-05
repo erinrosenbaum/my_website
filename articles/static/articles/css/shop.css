@@ -195,6 +195,7 @@ ul.errorlist {
     float:left;
     text-align:center;
     line-height:1.2;
+    height: 450px;
 }
 
 .product-list .item img {

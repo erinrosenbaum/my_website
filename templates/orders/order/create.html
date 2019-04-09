@@ -2,6 +2,7 @@
 {% block title %}Checkout{% endblock %}
 
 {% block content %}
+<div class="p-3">
   <h1>Checkout</h1>
   <div class="order-info">
     <h3>Your order</h3>
@@ -16,9 +17,12 @@
     <p>Total: ${{ cart.get_total_price }}</p>
   </div>
 
+
   <form class="order-form" action="." method="post">
     {{ form.as_p }}
     {% csrf_token %}
     <p><input type="submit" value="Place order"></p>
   </form>
+</div>
+
 {% endblock %}

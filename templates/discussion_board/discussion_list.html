@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Discussion Board{% endblock %}
+
+{% block content %}
+
+<div id="subheader" class="">
+  <div class="row align-items-center h-100">
+    <div class="col-lg-4 col-sm-12 h-100 justify-content-center">
+        <h1 class="d-inline-block ml-3 align-middle">Discussion Board</h1>
+    </div>
+    <div class="col-lg-4 col-sm-12 align-middle">
+
+    </div>
+    <div class="col-lg-4 col-sm-12 align-middle">
+
+    </div>
+  </div>
+  </div>
+
+
+<div class="container mt-4">
+  <a class="btn btn-outline-info btn" href="{% url 'discussion_new' %}">New Discussion</a>
+  <br>
+<br>
+
+
+  {% for discussion in object_list %}
+    <div id="discussion_card" class="card mb-5">
+      <div class="container p-0">
+        <div class="card-header">
+          <h2 class="d-inline-block"> {{ discussion.title }}</h2>  &middot;<span class="text-muted"> {{ discussion.author }} | {{ discussion.date }}</span>
+        </div>
+      </div>
+
+      <div class="card-body pb-2">
+        <div class="container">
+          {{ discussion.body }}
+        </div>
+
+        <div class="container mx-3 my-2 px-0">
+          <div class="">
+            <a class='btn btn-outline-info' href="{% url 'discussion_detail' discussion.pk %}">Detail</a>
+            <a class='btn btn-outline-info' href="{% url 'discussion_edit' discussion.pk %}">Edit</a>
+            <a class='btn btn-outline-warning' href="{% url 'discussion_delete' discussion.pk %}">Delete</a>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="card-footer">
+        <div class="container">
+          {% if discussion.comments.all %}
+          <h3 class="text-left">{{ discussion.comments.count }} Comment{{ discussion.comments.count|pluralize }}</h3>
+          {% else %}
+          <h3>No comments yet</h3>
+          {% endif %}
+
+          {% for comment in discussion.comments.all %}
+            <p class="mb-2">
+              <span class="font-weight-bold">{{ comment.author }} &middot;</span>
+              {{ comment }}
+              <a class="ml-2 btn btn-outline-warning btn-sm" href="{% url 'comment_delete' comment.pk %}">delete</a>
+            </p>
+          {% endfor %}
+
+        </div>
+        <div class="mx-3 mb-2 px-0">
+            <a class="btn btn-outline-info button-adjust" href="{% url 'comment_new' discussion.pk %}">New comment</a>
+        </div>
+
+      </div>
+    </div>
+
+  {% endfor %}
+{% endblock %}
+</div>

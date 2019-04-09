@@ -25,29 +25,30 @@ def index(request):
 
     for city in cities:
         resp = requests.get(url.format(city))
-        print('CONTENT \n')
-        print(resp.content)
-        print('TEXT \n')
-        print(resp.text)
-
-
+        # print('CONTENT \n')
+        # print(resp.content)
+        # print('TEXT \n')
+        # print(resp.text)
         resp = requests.get(url.format(city)).json()
+        if resp["cod"] != "404":
 
-        city_weather = {
-            'pk' : city.pk,
-            'name' : city.name,
-            #'state' : city.state,
-            'pressure' : resp['main']['pressure'],
-            'humidity' : resp['main']['humidity'],
-            'wind_speed' : resp['wind']['speed'],
-            'temp_min' : resp['main']['temp_min'],
-            'temp_max' : resp['main']['temp_max'],
-            'temperature' : resp['main']['temp'],
-            'description' : resp['weather'][0]['description'],
-            'icon' : resp['weather'][0]['icon'],
-        }
+            city_weather = {
+                'pk' : city.pk,
+                'name' : city.name,
+                #'state' : city.state,
+                'pressure' : resp['main']['pressure'],
+                'humidity' : resp['main']['humidity'],
+                'wind_speed' : resp['wind']['speed'],
+                'temp_min' : resp['main']['temp_min'],
+                'temp_max' : resp['main']['temp_max'],
+                'temperature' : resp['main']['temp'],
+                'description' : resp['weather'][0]['description'],
+                'icon' : resp['weather'][0]['icon'],
+            }
 
-        weather_data.append(city_weather)
+            weather_data.append(city_weather)
+        else:
+            city.delete()
 
     context = {'weather_data' : weather_data, 'form' : form}
     return render(request, 'weather/weather.html', context)

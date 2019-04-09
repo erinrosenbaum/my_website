@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}New Discussion{% endblock %}
+
+{% block content %}
+<div id="subheader" class="">
+  <div class="row align-items-center h-100">
+    <div class="col-lg-4 col-sm-12 h-100 justify-content-center">
+        <h1 class="d-inline-block ml-3 align-middle">New discussion</h1>
+    </div>
+    <div class="col-lg-4 col-sm-12 align-middle">
+
+    </div>
+    <div class="col-lg-4 col-sm-12 align-middle">
+
+    </div>
+  </div>
+</div>
+<div class="container mt-3">
+  <form class="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-outline-info">Save</button>
+  </form>
+</div>
+
+{% endblock %}

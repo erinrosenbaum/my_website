@@ -3,10 +3,12 @@
 {% load static %}
 {% block title %}Your shopping cart{% endblock %}
 
-{% block content %}
+{% block sub_content %}
 
-  {% if cart %}
-  <h1>Your shopping cart</h1>
+{% if cart %}
+
+<div class="p-3">
+  <h1 class="mb-3">Your shopping cart</h1>
   <table class="cart">
     <thead>
       <tr>
@@ -14,8 +16,8 @@
         <th>Product</th>
         <th>Quantity</th>
         <th>Remove</th>
-        <th>Unit Price</th>
-        <th>Price</th>
+        <th class="text-right">Unit Price</th>
+        <th class="text-right">Price</th>
       </tr>
     </thead>
     <tbody>
@@ -46,10 +48,21 @@
     </tbody>
   </table>
   {% else %}
-  <h1>Your shopping cart is empty</h1>
-  {% endif %}
-  <p class="text-right">
-    <a href="{% url 'shop:product_list' %}" class="button light">Continue shopping</a>
-    <a href="{% url 'orders:order_create' %}" class="button">Checkout</a>
-  </p>
+  <div class="m-3">
+    <h1 class="">Your shopping cart is empty</h1>
+    {% endif %}
+    <p class="text-right">
+      <a href="{% url 'shop:product_list' %}" class="button light">Continue shopping</a>
+      {% if cart %}
+      <a href="{% url 'orders:order_create' %}" class="button">Checkout</a>
+      {% endif %}
+    </p>
+  </div>
+
+
+</div>
+
+
+
+
 {% endblock %}

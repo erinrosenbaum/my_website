@@ -2,9 +2,10 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}{{ product.name }}{% endblock %}
+<title>{% block title %}{{ product.name }}{% endblock %}</title>
 
-{% block content %}
+{% block sub_content %}
+<div class="p-1 m-2">
   <div class="product-detail">
     <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
     <h1>{{ product.name }}</h1>
@@ -18,4 +19,6 @@
     </form>
     {{ product.description|linebreaks }}
   </div>
+</div>
+
 {% endblock %}

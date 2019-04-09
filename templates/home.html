@@ -1,30 +1,89 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div id="content-blog">
-  {% if user.is_authenticated %}
-    <p>Hi {{ user.username }}!</p>
-    <p><a href="{% url 'logout' %}">logout</a></p>
-    <p><a class="" href="{% url 'article_list' %}">View the articles</a></p>
 
-  {% else %}
-    <p>You are not logged in</p>
-    <p>
-      <a href="{% url 'login' %}">login</a> | <a href="{% url 'signup' %}">signup</a> | <a href="{% url 'password_reset' %}">Password reset</a><br>
-    </p>
+  <div class="container m-3">
+    {% if user.is_authenticated %}
+      <h1 class="my-4">{{ user.username }},</h1>
+      <h1 class="my-4">Thanks for checking out my website! Take a look:</h1>
+    {% else %}
+      <h1>Thanks for checking out my website! You're not logged in</h1>
+      <p>
+        <a href="{% url 'login' %}">login</a> | <a href="{% url 'signup' %}">signup</a> | <a href="{% url 'password_reset' %}">Password reset</a><br>
+      </p>
 
-  {% endif %}
-    <p><a class="" href="{% url 'weather:weather_list' %}">Weather page</a></p>
-    <p><a class="" href="{% url 'blog:post_list' %}">Blog</a></p>
-    <p><a class="" href="{% url 'shop:product_list' %}">Shop</a></p>
-    <p><a class="" href="{% url 'jobs:jobs_home' %}">Jobs</a></p>
-</div>
+    {% endif %}
 
-<h4 class=''>Sources:</h4>
-<p>Creating a Weather App in Django Using Python Requests </p>
-<p>https://www.youtube.com/watch?v=v7xjdXWZafY</p>
-<p>Django for Beginners. William S. Vincent</p>
-<p>Django 2 by Example. Antonio Mele </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm d-flex h-95">
+            <div class="card card-body">
+              <h5 class="card-title">Shopping Center</h5>
+              <p class="card-text"><a href="{% url 'shop:product_list' %}">Take me shopping</a></p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm d-flex h-95">
+            <div class="card card-body">
+              <h5 class="card-title">Discussion Board</h5>
+              <p class="card-text"><a href="{% url 'discussion_list' %}">See what everyone is talking about</a></p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm d-flex h-95">
+            <div class="card card-body">
+              <h5 class="card-title">Weather Page</h5>
+              <p class="card-text"><a href="{% url 'weather:weather_list' %}">What's the weather doing?</a></p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm d-flex h-95">
+            <div class="card card-body">
+              <h5 class="card-title">My Personal Blog</h5>
+              <p class="card-text"><a href="{% url 'blog:post_list' %}">See what I've been ranting about</a></p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm d-flex h-95">
+            <div class="card card-body">
+              <h5 class="card-title">My Projects</h5>
+              <p class="card-text"><a href="{% url 'jobs:jobs_home' %}">Have a look at some of my best projects</a></p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm d-flex h-95">
+            <div class="card card-body">
+              <h5 class="card-title">My Resume</h5>
+              <p class="card-text"><a href="{% static 'resume_for_erin_rosenbaum.pdf' %}">Your company goes here</a></p>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  <!--
+  <h4 class=''>Sources:</h4>
+  <p>Creating a Weather App in Django Using Python Requests </p>
+  <p>https://www.youtube.com/watch?v=v7xjdXWZafY</p>
+  <p>Django for Beginners. William S. Vincent</p>
+  <p>Django 2 by Example. Antonio Mele </p> -->
+
+  <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@yangshuo?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Yang Shuo"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Yang Shuo</span></a>
+  </div>
+
+
 {% endblock %}

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'users',
     'static_pages',
     'crispy_forms',
-    'articles',
+    'discussion_board',
     'django_extensions',
     'weather',
     'blog',

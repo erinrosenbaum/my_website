@@ -23,8 +23,8 @@ import jobs.views
 urlpatterns = [
     #path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('', include('static_pages.urls')),
-    path('articles/', include('articles.urls')),
     path('admin/', admin.site.urls),
+    path('discussion_board/', include('discussion_board.urls')),
     path('jobs/', include('jobs.urls', namespace='jobs')),
     path('cart/', include('cart.urls', namespace='cart')),
     path('blog/', include('blog.urls', namespace='blog')),

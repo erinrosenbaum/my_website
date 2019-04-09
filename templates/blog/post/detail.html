@@ -3,6 +3,7 @@
 {% block title %}Blog{% endblock %}
 
 {% block content %}
+<div class="p-3">
   <h1>{{ post.title }}</h1>
   <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
   {% if post.image %}
@@ -43,4 +44,5 @@
       <input class="btn btn-outline-info btn" type="submit" value="Add comment">
     </form>
   {% endif %}
+</div>
 {% endblock %}

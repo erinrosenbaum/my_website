@@ -1,25 +1,117 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Detail View{% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static '/discussion_board/css/styles.css' %}">
+{% endblock %}
 
 {% block content %}
-{% for city in weather_data %}
-  <div class="">
-    <figure class="image is-50x50">
-      <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
-    </figure>
-    <h1>Current weather in {{ object.name }}</h1>
-    <h3>{{ city.description }}</h3>
-    <h3>{{ city.temperature|floatformat:'0' }} ℉</h3>
-    <h3>Today's low: {{ city.temp_min|floatformat:'0' }} ℉</h3>
-    <h3>Today's high: {{ city.temp_max|floatformat:'0' }} ℉</h3>
-    <h3>Relative Humidity: {{ city.humidity }} %</h3>
-    <h3>Wind Speed: {{ city.wind_speed }} mph</h3>
-    <h3>Barometric Pressure : {{ city.pressure }} mb</h3>
 
-    {% endfor %}
 
-    <p><a class="btn btn-outline-danger btn-sm" href="{% url 'weather:city_delete' object.pk %}">Delete this city from saved list</a></p>
-    <p><a href="{% url 'weather:weather_list' %}">Back to Weather Main Page</a></p>
+<!-- <div id="subheader" class="">
+  <div class="row align-items-center h-100">
+    <div class="col-lg-3 col-sm-12 h-100 justify-content-center">
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+    </div>
+    <div class="col-lg-6 col-sm-12 align-middle">
+      <h1>Current weather in {{ object.name }}</h1>
+    </div>
+    <div class="col-lg-3 col-sm-12 align-middle">
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+      <figure class="ml-2 d-inline-block image is-50x50">
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+      </figure>
+    </div>
   </div>
+</div> -->
+
+
+
+
+<div class="city_weather_page">
+  <div class="container pt-3">
+    <!-- {% for city in weather_data %} -->
+    <h1>Current weather in {{ object.name }}</h1>
+      <div class="row">
+        <div class="col-sm-6">
+          <figure class="ml-4 d-inline-block image is-50x50">
+            <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+          </figure>
+          <figure class="ml-5 d-inline-block image is-50x50">
+            <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+          </figure>
+          <figure class="ml-5 d-inline-block image is-50x50">
+            <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+          </figure>
+          <figure class="ml-5 d-inline-block image is-50x50">
+            <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+          </figure>
+          <figure class="ml-5 d-inline-block image is-50x50">
+            <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+          </figure>
+          <table id="city_detail_table" class="table table-bordered">
+              <th>Description</th>
+              <td>{{ city.description|capfirst }}</td>
+            <tr>
+              <th>Current Temp</th>
+              <td>{{ city.temperature|floatformat:'0' }} ℉</td>
+            </tr>
+            <tr>
+              <th>Today's low</th>
+              <td>{{ city.temp_min|floatformat:'0' }} ℉</td>
+            </tr>
+            <tr>
+              <th>Today's high</th>
+              <td>{{ city.temp_max|floatformat:'0' }} ℉</td>
+            </tr>
+            <tr>
+              <th>Relative Humidity</th>
+              <td>{{ city.humidity }}%</td>
+            </tr>
+            <tr>
+              <th>Wind Speed</th>
+              <td>{{ city.wind_speed }} mph</td>
+            </tr>
+            <tr>
+              <th>Barometric Pressure</th>
+              <td>{{ city.pressure }} mb</td>
+            </tr>
+          </table>
+
+          <!-- {% endfor %} -->
+
+          <p><a class="btn btn-outline-info ml-2"  href="{% url 'weather:weather_list' %}">Back to Weather Main Page</a></p>
+          <p><a class="btn btn-outline-info ml-2" href="{% url 'weather:city_delete' object.pk %}">Delete this city from saved list</a></p>
+        </div>
+
+      </div>
+  </div>
+
+
+</div>
 {% endblock %}

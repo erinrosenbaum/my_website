@@ -3,6 +3,7 @@
 {% block title %}Share a post{% endblock %}
 
 {% block content %}
+<div class="m-3">
   {% if sent %}
   <h1>E-mail successfully sent</h1>
   <p>"{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.</p>
@@ -15,4 +16,5 @@
     <input class="btn btn-success" type="submit" name="" value="Send email">
   </form>
   {% endif %}
+</div>
 {% endblock %}

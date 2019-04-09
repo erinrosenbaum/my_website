@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% block title %}Add city{% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static '/discussion_board/css/styles.css' %}">
+{% endblock %}
 
 {% block content %}
-  <h2>Add a city</h2>
-  <form class="" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button class="btn btn-success ml-2" type="submit">Add city</button>
-  </form>
+<div class="weather_page">
+  <div class="container pt-3">
+    <h1 class="">Keep track of the weather in your favorite cities</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button class="btn btn-outline-info" type="submit">Add city</button>
+    </form>
+  </div>
+
+</div>
+
 {% endblock %}

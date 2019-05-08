@@ -27,10 +27,10 @@
             <a class="brand nav-link pull-left flex-sm-fill text-sm-center" href="{% url 'home' %}">Erin Rosenbaum</a>
             <a class="nav-link flex-sm-fill text-md-center" href="{% url 'shop:product_list' %}">Shopping Center</a>
             <a class="nav-link flex-sm-fill text-md-center" href="{% url 'discussion_list' %}">Discussion Board</a>
-            <a class="nav-link flex-sm-fill text-md-center" href="{% url 'blog:post_list' %}">Blog</a>
+            <a class="nav-link flex-sm-fill text-md-center" href="{% url 'blog:post_list' %}">My Blog</a>
             <a class="nav-link flex-sm-fill text-md-center" href="{% url 'weather:weather_list' %}">Weather</a>
-            <a class="nav-link flex-sm-fill text-md-center" href="#">Business</a>
-            <a class="nav-link flex-sm-fill text-md-center" href="#">Sports</a>
+            <a class="nav-link flex-sm-fill text-md-center" href="{% url 'stock_market:stock_list' %}">Stock Market</a>
+            <!-- <a class="nav-link flex-sm-fill text-md-center" href="#">Sports</a> -->
             <a class="nav-link flex-sm-fill text-md-center" href="https://twitter.com/ErinLRosenbaum">Twitter</a>
             <a class="nav-link flex-sm-fill text-md-center" href="{% static 'resume_for_erin_rosenbaum.pdf' %}">Resume</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"\

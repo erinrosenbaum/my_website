@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Detail View{% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static '/discussion_board/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="city_weather_page">
+  <div class="container pt-3">
+    <!-- {% for city in weather_data %} -->
+    <h1>{{ object.symbol }}</h1>
+      <div class="row">
+        <div class="col-sm-6">
+
+          <table id="city_detail_table" class="table table-bordered">
+              <th>Description</th>
+              <td>data</td>
+            <tr>
+              <th>Current Temp</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th>Today's low</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th>Today's high</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th>Relative Humidity</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th>Wind Speed</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th>Barometric Pressure</th>
+              <td>data</td>
+            </tr>
+          </table>
+
+          <!-- {% endfor %} -->
+
+          <p><a class="btn btn-outline-info ml-2"  href="{% url 'stock_market:stock_list' %}">Back to Stock Market Main Page</a></p>
+          <p><a class="btn btn-outline-info ml-2" href="{% url 'stock_market:stock_delete' object.pk %}">Delete this symbol from saved list</a></p>
+        </div>
+
+      </div>
+  </div>
+
+
+</div>
+{% endblock %}

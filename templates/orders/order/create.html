@@ -21,7 +21,7 @@
   <form class="order-form" action="." method="post">
     {{ form.as_p }}
     {% csrf_token %}
-    <p><input type="submit" value="Place order"></p>
+    <p><input type="submit" value="Place order (disabled)" disabled></p>
   </form>
 </div>
 

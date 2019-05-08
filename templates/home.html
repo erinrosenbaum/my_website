@@ -12,7 +12,7 @@
     {% else %}
       <h1>Thanks for checking out my website! You're not logged in</h1>
       <p>
-        <a href="{% url 'login' %}">login</a> | <a href="{% url 'signup' %}">signup</a> | <a href="{% url 'password_reset' %}">Password reset</a><br>
+        <a href="{% url 'login' %}">login</a> | <a href="{% url 'signup' %}">signup</a> | <a href="{% url 'password_reset' %}">password reset</a><br>
       </p>
 
     {% endif %}
@@ -20,8 +20,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm d-flex h-95">
-            <div class="card card-body">
+          <div class="card my-4 shadow-sm d-flex h-95">
+            <div class="card-body h-100">
               <h5 class="card-title">Shopping Center</h5>
               <p class="card-text"><a href="{% url 'shop:product_list' %}">Take me shopping</a></p>
             </div>
@@ -29,8 +29,8 @@
         </div>
         <br>
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm d-flex h-95">
-            <div class="card card-body">
+          <div class="card my-4 shadow-sm d-flex h-95">
+            <div class="card-body h-100">
               <h5 class="card-title">Discussion Board</h5>
               <p class="card-text"><a href="{% url 'discussion_list' %}">See what everyone is talking about</a></p>
             </div>
@@ -38,8 +38,8 @@
         </div>
         <br>
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm d-flex h-95">
-            <div class="card card-body">
+          <div class="card my-4 shadow-sm d-flex h-95">
+            <div class="card-body h-100">
               <h5 class="card-title">Weather Page</h5>
               <p class="card-text"><a href="{% url 'weather:weather_list' %}">What's the weather doing?</a></p>
             </div>
@@ -47,8 +47,8 @@
         </div>
         <br>
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm d-flex h-95">
-            <div class="card card-body">
+          <div class="card my-4 shadow-sm d-flex h-95">
+            <div class="card-body h-100">
               <h5 class="card-title">My Personal Blog</h5>
               <p class="card-text"><a href="{% url 'blog:post_list' %}">See what I've been ranting about</a></p>
             </div>
@@ -56,17 +56,17 @@
         </div>
         <br>
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm d-flex h-95">
-            <div class="card card-body">
-              <h5 class="card-title">My Projects</h5>
-              <p class="card-text"><a href="{% url 'jobs:jobs_home' %}">Have a look at some of my best projects</a></p>
+          <div class="card my-4 shadow-sm d-flex h-95">
+            <div class="card-body h-100">
+              <h5 class="card-title">Stock Market</h5>
+              <p class="card-text"><a href="{% url 'stock_market:stock_list' %}">Keep track of your favorite stocks</a></p>
             </div>
           </div>
         </div>
         <br>
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm d-flex h-95">
-            <div class="card card-body">
+          <div class="card my-4 shadow-sm d-flex h-95">
+            <div class="card-body h-100">
               <h5 class="card-title">My Resume</h5>
               <p class="card-text"><a href="{% static 'resume_for_erin_rosenbaum.pdf' %}">Your company goes here</a></p>
             </div>
@@ -82,7 +82,6 @@
   <p>Django for Beginners. William S. Vincent</p>
   <p>Django 2 by Example. Antonio Mele </p> -->
 
-  <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@yangshuo?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Yang Shuo"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Yang Shuo</span></a>
   </div>
 
 

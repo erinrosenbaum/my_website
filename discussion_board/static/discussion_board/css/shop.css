@@ -4,6 +4,11 @@
   border: 1px solid black;
 } */
 
+.card {
+  min-height: 175px;
+}
+
+
 .social {
     float:right;
 }

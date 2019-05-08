@@ -35,6 +35,7 @@ urlpatterns = [
     path('orders/', include('orders.urls', namespace='orders')),
     path('payment/', include('payment.urls', namespace='payment')),
     path('shop/', include('shop.urls', namespace='shop')),
+    path('stock_market/', include('stock_market.urls', namespace='stock_market')),
     # path('jobs/', jobs.views.jobs_home, name='jobs_home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

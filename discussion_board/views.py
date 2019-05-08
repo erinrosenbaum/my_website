@@ -51,9 +51,6 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
     login_url = 'login'
 
     def form_valid(self, form):
-        # print(self)
-        # print(self.request)
-        # print(form)
         form.instance.author = self.request.user
         form.instance.discussion_id = self.kwargs['pk']
         return super().form_valid(form)

@@ -10,7 +10,7 @@
     {{ form|crispy }}
     <p>Are you sure you want to delete your comment?</p>
     <p>{{ comment.comment }}</p>
-    <button class="btn btn-outline-danger" type="submit">Confirm</button>
+    <button class="btn btn-outline-warning" type="submit">Confirm</button>
     <a class="btn btn-outline-info ml-2" href="{% url 'discussion_list' %}">Cancel</a>
   </form>
 </div>

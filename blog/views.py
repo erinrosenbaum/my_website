@@ -8,6 +8,23 @@ from django.core.mail import send_mail
 from taggit.models import Tag
 from django.db.models import Count
 from django.utils import timezone
+from django.views.generic.edit import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from . import models
+from .models import Post
+from django.urls import reverse_lazy
+
+# class PostCreateView(CreateView, LoginRequiredMixin):
+#     model = models.Post
+#     template_name = 'blog/post/new.html'
+#     # fields = ['title','body']
+#     fields = '__all__'
+#     login_url = 'login'
+#     success_url = reverse_lazy('blog:post_list')
+#
+#     def form_valid(self, form):
+#         form.instance.author = self.request.user
+#         return super(PostCreateView, self).form_valid(form)
 
 def post_search(request):
     form = SearchForm()
@@ -20,8 +37,6 @@ def post_search(request):
             search_vector = SearchVector('title', 'body')
             search_query = SearchQuery(query)
             results = Post.objects.annotate(search=search_vector, rank=SearchRank(search_vector, search_query)).filter(search=search_query).order_by('-rank')
-
-
 
     return render(request, 'blog/post/search.html', {'form': form, 'query': query, 'results': results})
 

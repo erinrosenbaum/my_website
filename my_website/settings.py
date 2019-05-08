@@ -177,3 +177,8 @@ Configuration.configure(
     BRAINTREE_PUBLIC_KEY,
     BRAINTREE_PRIVATE_KEY
 )
+
+try:
+    from local_settings import *
+except ImportError:
+    pass

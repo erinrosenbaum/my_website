@@ -147,13 +147,6 @@ CART_SESSION_ID = 'cart'
 
 from braintree import Configuration, Environment
 
-Configuration.configure(
-    Environment.Sandbox,
-    BRAINTREE_MERCHANT_ID,
-    BRAINTREE_PUBLIC_KEY,
-    BRAINTREE_PRIVATE_KEY
-)
-
 try:
     from local_settings import *
 except ImportError:

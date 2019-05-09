@@ -100,10 +100,12 @@ class CityDeleteView(DeleteView):
     template_name = 'weather/city_delete.html'
     success_url = reverse_lazy('weather:weather_list')
 
-class CityCreateView(CreateView):
+
+class CityCreateView(LoginRequiredMixin, CreateView):
     model = models.City
     template_name = 'weather/new_city.html'
     fields = ['name']
+    login_url = 'login'
     success_url = reverse_lazy('weather:weather_list')
 
     def form_valid(self, form):

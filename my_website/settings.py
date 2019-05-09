@@ -148,6 +148,6 @@ CART_SESSION_ID = 'cart'
 from braintree import Configuration, Environment
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass

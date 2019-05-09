@@ -20,13 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rmh$v0ow_6zb5r@c#(ng!(&i-u!v8^hw*)r+xa$o3_rjm3&mv2'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'erinrosenbaum.com']
-
 
 # Application definition
 
@@ -87,19 +84,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'my_website.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_website',
-        'USER': 'mac',
-        'PASSWORD': 'Baums226',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
 
 
 # Password validation
@@ -153,20 +138,12 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
 ]
 
-SOCIAL_AUTH_FACEBOOK_KEY = '373093810189426'
-SOCIAL_AUTH_FACEBOOK_SECRET = '6b3fdb7c7d8224f01cbbf55838244a2b'
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '675314618696-978464rk6gju3qjat1im9tnctr8fb6nn.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '0tT0MQWy6x4B5_bNG6DajGCt'
 
 THUMBNAIL_DEBUG = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 CART_SESSION_ID = 'cart'
-
-BRAINTREE_MERCHANT_ID = 'rvtndbnk5c5x9qm4'
-BRAINTREE_PUBLIC_KEY = 't8ft5hqxh579vnfn'
-BRAINTREE_PRIVATE_KEY = '037c1c12744d56d0c2917ec67334ce9a'
 
 from braintree import Configuration, Environment
 

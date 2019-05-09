@@ -99,7 +99,7 @@ USE_L10N = True
 USE_TZ = False
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '/static/')
+    os.path.join(BASE_DIR, '/my_website/static/')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, '/static/')

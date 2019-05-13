@@ -17,7 +17,10 @@
       {% csrf_token %}
       <input type="submit" name="" value="Add to cart">
     </form>
-    {{ product.description|linebreaks }}
+    <div class="mx-3">
+      {{ product.description|linebreaks }}
+    </div>
+
   </div>
 </div>
 

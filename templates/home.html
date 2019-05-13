@@ -10,7 +10,7 @@
       <h1 class="my-4">{{ user.username }},</h1>
       <h1 class="my-4">Thanks for checking out my website! Take a look:</h1>
     {% else %}
-      <h1>Thanks for checking out my website! You're not logged-in. Being logged-in is not required. Some areas are off-limits unless you have an account.</h1>
+      <h1>Thanks for checking out my website! You're not logged-in. This website utilizes a Django custom user model for authentication.</h1>
       <p>
         <a href="{% url 'login' %}">login</a> | <a href="{% url 'signup' %}">signup</a> | <a href="{% url 'password_reset' %}">password reset</a><br>
       </p>
@@ -73,6 +73,7 @@
           </div>
         </div>
         <br>
+        <h3>Coming soon: mobile-friendly design</h3>
       </div>
     </div>
   <!--
